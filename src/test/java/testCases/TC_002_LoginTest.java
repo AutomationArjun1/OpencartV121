@@ -1,5 +1,7 @@
 package testCases;
 
+import java.time.Duration;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +18,7 @@ public class TC_002_LoginTest extends BaseClass{
 		logger.info("Starting TC_002_LoginTest");
 		
 		try
-		{				
+		{	
 			HomePage hp=new HomePage(driver);
 			
 			hp.clickMyAccount();
@@ -25,10 +27,11 @@ public class TC_002_LoginTest extends BaseClass{
 			
 			LoginPage lp=new LoginPage(driver);
 			
+
 			lp.setEmail(rb.getString("email")); // valid email, get it from properties file
-			
+
 			lp.setPassword(rb.getString("password")); // valid password, get it from properties file
-			
+
 			lp.clickLogin();
 			
 			MyAccountPage macc=new MyAccountPage(driver);
@@ -41,6 +44,7 @@ public class TC_002_LoginTest extends BaseClass{
 		catch(Exception e)
 		{
 			Assert.fail();
+			System.out.println("failed");
 		}
 		logger.info(" Finished TC_002_LoginTest");
 		
