@@ -18,5 +18,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # ✅ Install Google Chrome (needed for Selenium + ChromeDriver)
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      # ✅ Run Maven build & tests
       - name: Build & Test with Maven
         run: mvn -B clean test --file pom.xml
